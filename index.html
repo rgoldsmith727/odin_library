@@ -9,6 +9,25 @@
   <script src="./script.js" defer ></script>
 </head>
 <body>
-  
+  <div class="addBookForm">
+    <form action="/" id="libraryForm">
+      <label for="title">Title
+        <input type="text" id="title" name="title">
+      </label>
+      <label for="author">Author
+        <input type="text" id="author" name="author">
+      </label>
+      <label for="pages">Pages
+        <input type="tel" name="pages" id="pages">
+      </label>
+      <label for="read">Read?
+        <input type="checkbox" name="read" id="read">
+      </label>
+      <button id="libraryFormButton" type="submit">Add to Library</button>
+    </form>
+  </div>
+  <div id="bookList">
+
+  </div>
 </body>
 </html>

@@ -16,3 +16,9 @@ html {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16px;
 }
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+}
