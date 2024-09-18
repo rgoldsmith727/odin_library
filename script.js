@@ -27,7 +27,7 @@ function processFormSubmit() {
   const title = libraryForm.title.value 
   const author = libraryForm.author.value
   const pages = libraryForm.pages.value 
-  const read = libraryForm.read.checked ? 'read' : 'not read'
+  const read = libraryForm.read.checked ? 'Read' : 'Not Read'
 
   addBookToLibrary(title, author, pages, read)
   clearBookList()
@@ -37,15 +37,30 @@ function processFormSubmit() {
 
 function displayLibrary() {
   myLibrary.forEach(book => {
-    const p = document.createElement('p')
-    p.textContent = book.info()
-    bookList.appendChild(p)
+    const div = document.createElement('div')
+    div.classList.toggle('card')
+    const title = document.createElement('div')
+    title.classList.toggle('bookTitle')
+    title.textContent = book.title
+    div.appendChild(title)
+    const author = document.createElement('div')
+    author.classList.toggle('bookAuthor')
+    author.textContent = book.author
+    div.appendChild(author)
+    const bottomRow = document.createElement('div')
+    bottomRow.classList.toggle('bottom-row')
+    div.appendChild(bottomRow)
+    const pages = document.createElement('div')
+    pages.classList.toggle('bookPages')
+    pages.textContent = book.pages
+    bottomRow.appendChild(pages)
+    const read = document.createElement('div')
+    read.classList.toggle('bookRead')
+    read.textContent = book.read
+    bottomRow.appendChild(read)
+    bookList.appendChild(div)
   })
 }
-
-addBookToLibrary('The Chamber', 'John Grisham', 306, 'read')
-addBookToLibrary('Where the Caged Bird Sings', 'Maya Angelou', 253, 'not read')
-addBookToLibrary('The Red Door', 'Frieda McFadden', 367, 'read')
 
 const libraryFormButton = document.getElementById('libraryFormButton')
 
@@ -53,8 +68,4 @@ libraryFormButton.addEventListener('click', e => {
   e.preventDefault()
   processFormSubmit()
 })
-
-
-displayLibrary()
-
 
