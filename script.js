@@ -11,28 +11,32 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author} has ${this.pages} pages and has been ${this.read}.`
 }
 
+const libraryForm = document.getElementById('libraryForm')  
+const bookList = document.getElementById('bookList')
+
 function addBookToLibrary(title, author, pages, read) {
   const newBook =  new Book(title, author, pages, read)
   myLibrary.push(newBook)
 }
 
+function clearBookList() {
+  bookList.textContent = ''
+}
+
 function processFormSubmit() {
-  const libraryForm = document.getElementById('libraryForm')
   const title = libraryForm.title.value 
   const author = libraryForm.author.value
   const pages = libraryForm.pages.value 
-  const read = libraryForm.read.value ? 'read' : 'not read'
+  const read = libraryForm.read.checked ? 'read' : 'not read'
 
   addBookToLibrary(title, author, pages, read)
-
-  const bookList = document.getElementById('bookList')
-  bookList.textContent = ''
+  clearBookList()
   displayLibrary()
+  libraryForm.reset()
 }
 
 function displayLibrary() {
   myLibrary.forEach(book => {
-    const bookList = document.getElementById('bookList')
     const p = document.createElement('p')
     p.textContent = book.info()
     bookList.appendChild(p)
