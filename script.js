@@ -41,6 +41,20 @@ function displayLibrary() {
     div.classList.toggle('card')
     const index = myLibrary.indexOf(book)
     div.setAttribute('data-index', index)
+
+    const deleteCard = document.createElement('button')
+    deleteCard.setAttribute('type', 'button')
+    deleteCard.classList.toggle('deleteCard')
+    deleteCard.textContent = 'x'
+    div.appendChild(deleteCard)
+
+    deleteCard.addEventListener('click', e => {
+      const card = e.target.closest('.card')
+      const dataIndex = card.getAttribute('data-index')
+      myLibrary.splice(dataIndex, 1)
+      clearBookList()
+      displayLibrary()
+    })
     
     const title = document.createElement('div')
     title.classList.toggle('bookTitle')
@@ -66,11 +80,12 @@ function displayLibrary() {
     read.classList.toggle('bookRead')
     read.textContent = book.read
     bottomRow.appendChild(read)
-    bookList.appendChild(div)
 
     read.addEventListener('click', e=> {
       read.textContent = e.target.textContent === 'Read' ? 'Not Read' : 'Read'
     })
+    
+    bookList.appendChild(div)
   })
 }
 

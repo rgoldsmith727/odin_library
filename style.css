@@ -35,14 +35,14 @@ body {
 }
 
 .card {
-  height: 200px;
-  width: 200px;
+  height: 225px;
+  width: 225px;
   background-color: rgb(211, 211, 211);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.25rem 0.5rem;
   
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 22px repeat(3, 1fr);
   align-items: center;
   text-align: center;
 }
@@ -66,5 +66,20 @@ body {
 }
 
 .bookRead:hover {
+  background-color: rgb(173, 216, 230);
+}
+
+.deleteCard {
+  background-color: inherit;
+  cursor: pointer;
+  border: 0.5px solid black;
+  border-radius: 50px;
+  width: 22px;
+  height: 22px;
+  justify-self: end;
+  
+}
+
+.deleteCard:hover {
   background-color: rgb(173, 216, 230);
 }
