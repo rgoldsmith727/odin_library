@@ -19,7 +19,7 @@ html {
 
 body {
   display: grid;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 30vh 1fr;
   gap: 1rem;
 }
 
@@ -27,11 +27,36 @@ body {
   padding: 1rem;
 }
 
+#libraryForm {
+  display: grid;
+  gap: 1rem;
+  grid-template: repeat(3, 1fr) / repeat(2, 250px);
+}
+
+#libraryForm input {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+#libraryForm button {
+  cursor: pointer;
+  background-color: rgb(173, 216, 230);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  justify-self: center;
+  grid-column: span 2;
+}
+
+#libraryForm button:hover {
+  background-color: rgba(173, 216, 230, 0.5);
+}
+
 #bookList {
   padding: 1rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
 }
 
 .card {
