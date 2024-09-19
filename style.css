@@ -37,7 +37,7 @@ body {
 .card {
   height: 200px;
   width: 200px;
-  background-color: lightgrey;
+  background-color: rgb(211, 211, 211);
   border-radius: 10px;
   padding: 1rem;
   
@@ -51,4 +51,20 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+}
+
+.bookPages {
+  padding: 0.5rem;
+}
+
+.bookRead {
+  border: none;
+  background-color: inherit;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bookRead:hover {
+  background-color: rgb(173, 216, 230);
 }

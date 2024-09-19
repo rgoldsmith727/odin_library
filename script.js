@@ -39,33 +39,45 @@ function displayLibrary() {
   myLibrary.forEach(book => {
     const div = document.createElement('div')
     div.classList.toggle('card')
+    const index = myLibrary.indexOf(book)
+    div.setAttribute('data-index', index)
+    
     const title = document.createElement('div')
     title.classList.toggle('bookTitle')
     title.textContent = book.title
     div.appendChild(title)
+    
     const author = document.createElement('div')
     author.classList.toggle('bookAuthor')
     author.textContent = book.author
     div.appendChild(author)
+    
     const bottomRow = document.createElement('div')
     bottomRow.classList.toggle('bottom-row')
     div.appendChild(bottomRow)
+    
     const pages = document.createElement('div')
     pages.classList.toggle('bookPages')
     pages.textContent = book.pages
     bottomRow.appendChild(pages)
-    const read = document.createElement('div')
+    
+    const read = document.createElement('button')
+    read.setAttribute('type', 'button')
     read.classList.toggle('bookRead')
     read.textContent = book.read
     bottomRow.appendChild(read)
     bookList.appendChild(div)
+
+    read.addEventListener('click', e=> {
+      read.textContent = e.target.textContent === 'Read' ? 'Not Read' : 'Read'
+    })
   })
 }
 
 const libraryFormButton = document.getElementById('libraryFormButton')
 
+
 libraryFormButton.addEventListener('click', e => {
   e.preventDefault()
   processFormSubmit()
 })
-
